@@ -1,0 +1,8 @@
+- name: adding repo
+  become: true
+  shell: sudo apt-get install python-pip -y
+
+- name: installing ansible
+  pip:
+    name: 
+        - ansible
