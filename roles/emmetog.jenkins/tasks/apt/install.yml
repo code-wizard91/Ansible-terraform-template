@@ -1,0 +1,77 @@
+---
+- name: Create Jenkins group
+  group:
+    name: "{{ jenkins_config_group }}"
+    state: present
+
+- name: Create Jenkins user
+  user:
+    name: "{{ jenkins_config_owner }}"
+    group: "{{ jenkins_config_group }}"
+    home: "{{ jenkins_home }}"
+    shell: "/bin/false"
+    state: present
+
+# This package is only available for Xenial (16.04), see:
+# https://packages.ubuntu.com/search?keywords=python-software-properties
+- name: Install apt PPA dependencies
+  apt:
+    name: python-software-properties
+  when: ansible_distribution_release == "xenial"
+
+- name: Install the Debian keyring
+  apt:
+    name: debian-archive-keyring
+
+- name: Add apt keys for debian repositories
+  apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: "{{ key_item }}"
+  with_items:
+    - "04EE7237B7D453EC"
+    - "648ACFD622F3D138"
+  loop_control:
+    loop_var: key_item
+
+- name: Add Debian experimental repository for OpenJDK
+  apt_repository:
+    repo: deb http://httpredir.debian.org/debian experimental main
+    state: present
+
+- name: Add Debian sid repository for OpenJDK
+  apt_repository:
+    repo: deb http://httpredir.debian.org/debian sid main
+    state: present
+
+- name: Create pinning file for apt
+  copy:
+    src: files/apt/debian-package-pins
+    dest: /etc/apt/preferences.d/debian
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Install apt packages
+  apt:
+    name: "{{ jenkins_apt_packages }}"
+    state: present
+
+- name: Set default Java version
+  shell: /usr/sbin/update-java-alternatives -s "{{ jenkins_java_version }}"  # noqa 305
+  ignore_errors: true
+  changed_when: false
+
+- name: Add Jenkins key
+  apt_key:
+    url: "https://pkg.jenkins.io/debian-stable/jenkins.io.key"
+    state: present
+
+- name: Add Jenkins repository
+  apt_repository:
+    repo: 'deb https://pkg.jenkins.io/debian-stable binary/'
+    state: present
+
+- name: Install Jenkins binary package
+  apt:
+    name: "jenkins={{ jenkins_version }}"
+    update_cache: true

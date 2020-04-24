@@ -1,0 +1,10 @@
+---
+- name: Jenkins is stopped
+  service:
+    name: jenkins
+    state: stopped
+  changed_when: false
+
+- name: Wait for Jenkins to stop
+  wait_for:
+    timeout: 5
