@@ -8,10 +8,10 @@
 - hosts: myvm
   become: true
   roles:
-    - ansible     
+#    - ansible     
 #    - angular-node-npm     
 #    - git
-#    - docker
+    - docker
 #    - terraform
   tasks:
   - name: configuring user access
