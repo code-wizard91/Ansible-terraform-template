@@ -1,7 +1,7 @@
-[jenkins]
-40.65.223.158
- 
-[jenkins:vars]
+[NAME_OF_HOST]
+0.0.0.0
+
+[NAME_OF_HOST:vars]
 ansible_user=mizan
 ansible_ssh_common_args='-o StrictHostKeyChecking=no'
 ansible_ssh_private_key_file=~/.ssh/id_rsa
