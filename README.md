@@ -24,7 +24,7 @@
 - RUN: "  ansible-playbook -i inventory playbook.yml   "
 
 
-#### How to use the Terraform template (Ubuntu Linux)
+### How to use the Terraform template (Ubuntu Linux)
 
 #### Install Terraform: 
 
