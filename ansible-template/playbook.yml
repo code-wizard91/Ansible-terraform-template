@@ -8,6 +8,7 @@
 - hosts: myvm
   become: true
   roles:
+#    - jenkins  
 #    - ansible     
 #    - angular-node-npm     
 #    - git
