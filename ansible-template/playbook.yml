@@ -5,15 +5,15 @@
   - name: updating packages
     command: sudo apt-get update -y
 
-- hosts: myvm
+- hosts: jenkins
   become: true
-  roles:
-#    - jenkins  
+  roles: 
 #    - ansible     
-#    - angular-node-npm     
+    - angular-node-npm     
 #    - git
 #    - docker
 #    - terraform
+    - jenkins  
   tasks:
   - name: configuring user access
     command: sudo usermod -aG sudo mizan
