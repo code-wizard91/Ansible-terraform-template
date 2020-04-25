@@ -5,7 +5,7 @@
 
 #### Follows steps to install Ansible:
 
-- 1. (RUN COMMANDS BELOW) to make sure ~/.local/bin exists and is on your PATH
+- (RUN COMMANDS BELOW) to make sure ~/.local/bin exists and is on your PATH
      - mkdir -p ~/.local/bin
      - echo 'PATH=$PATH:~/.local/bin' >> ~/.bashrc
      - source ~/.bashrc
