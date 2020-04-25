@@ -64,6 +64,7 @@
 
 - Once the inventory file has been populated open up the playbook.yml file and remove the "#"s to run the specific roles, the roles are referenced by ansible when you run the command below and can be found here "  /ansible-template/roles  "
 - Also rename the host  "myvm" inside the playbook.yml file so that it matches your inventory file host name
+- Also 
 
 - RUN: "  ansible-playbook -i inventory playbook.yml   " on your command line
 
