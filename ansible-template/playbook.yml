@@ -5,7 +5,7 @@
   - name: updating packages
     command: sudo apt-get update -y
 
-- hosts: jenkins
+- hosts: myvm
   become: true
   roles: 
 #    - ansible     
