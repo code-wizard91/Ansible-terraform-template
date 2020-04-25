@@ -16,9 +16,11 @@
 
 -  Make sure Terraform is installed or follow this link : https://www.slashroot.in/terraform-tutorial-how-install-terraform
 
+#### Run Terraform
+
 - You need to configure your provider for terraform to work this example assumes you are using Azure and have the Az Cli installed, you must also be logged in using the "       az login     "  command.
 
-- The provider block can be changed in the " main.tf "  file.
+- The provider block can be found in the " main.tf "  file.
 
 - Inside the Terraform directory there are 3 folders, each represents infrastructure as code and terraform can orchestrate the creation of these modules. Each directory has a " main.tf, outputs.tf and a variables.tf. 
 
