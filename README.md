@@ -33,6 +33,10 @@
 
 ### How to use the Ansible template (Ubuntu Linux)
 
+- Ansible is an open-source software provisioning, configuration management, and application-deployment tool.
+
+- For more info Ansible goto to this link:  https://docs.ansible.com/ansible/latest/network/getting_started/first_playbook.html
+
 #### Install Ansible:
 
 - (Run commands below) to make sure ~/.local/bin exists and is on your PATH
@@ -44,7 +48,6 @@
 
 - check that ansible has been installed :  "   ansible --version  "
 
-- for info on how to use Ansible goto to this link: https://docs.ansible.com/ansible/latest/network/getting_started/first_playbook.html
 
 #### Run Ansible
 
