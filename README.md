@@ -1,28 +1,5 @@
 # This template is used for Ansible and Terraform
 
-### How to use the Ansible template (Ubuntu Linux)
-
-#### Install Ansible:
-
-- (Run commands below) to make sure ~/.local/bin exists and is on your PATH
-     - mkdir -p ~/.local/bin
-     - echo 'PATH=$PATH:~/.local/bin' >> ~/.bashrc
-     - source ~/.bashrc
-     
-- install ansible with pip :  "  pip install --user ansible   "
-
-- check that ansible has been installed :  "   ansible --version  "
-
-- for info on how to use Ansible goto to this link: https://docs.ansible.com/ansible/latest/network/getting_started/first_playbook.html
-
-#### Run Ansible
-
-- go into the ansible folder and populate the inventory file with your host ip's, Ansible will use this to run its plays
-
-- once the inventory file has been populated open up the playbook.yml file and remove the "#"s to run the specific roles, the roles are referenced by ansible when you run the command below and can be found here "  /ansible-template/roles  "
-
-- RUN: "  ansible-playbook -i inventory playbook.yml   " on your command line
-
 
 ### How to use the Terraform template (Ubuntu Linux)
 
@@ -48,10 +25,33 @@
     
 - Finally to run the actual infrastructure deployment run   "    terraform apply   " 
 
-
-
 - This will now create an ubuntu vm and output the IP of the VM. 
 
 - This process can be repeated with the other modules within the  " /terraform  "  Folder.
+
+
+
+### How to use the Ansible template (Ubuntu Linux)
+
+#### Install Ansible:
+
+- (Run commands below) to make sure ~/.local/bin exists and is on your PATH
+     - mkdir -p ~/.local/bin
+     - echo 'PATH=$PATH:~/.local/bin' >> ~/.bashrc
+     - source ~/.bashrc
+     
+- install ansible with pip :  "  pip install --user ansible   "
+
+- check that ansible has been installed :  "   ansible --version  "
+
+- for info on how to use Ansible goto to this link: https://docs.ansible.com/ansible/latest/network/getting_started/first_playbook.html
+
+#### Run Ansible
+
+- Go into the ansible folder and populate the inventory file with your host ip's, Ansible will use this to run its plays, make sure you  have access to the remote machines setup using public key authentication, if you created the machines using the terraform tutorial above this will already be setup for you.
+
+- Once the inventory file has been populated open up the playbook.yml file and remove the "#"s to run the specific roles, the roles are referenced by ansible when you run the command below and can be found here "  /ansible-template/roles  "
+
+- RUN: "  ansible-playbook -i inventory playbook.yml   " on your command line
 
 
