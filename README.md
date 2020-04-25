@@ -3,12 +3,19 @@
 
 ### How to use the Terraform template (Ubuntu Linux)
 
+#### Configure Provider:
+
+- For GCP : https://www.terraform.io/docs/providers/google/guides/getting_started.html
+- For Azure: https://www.terraform.io/docs/providers/azurerm/guides/service_principal_client_secret.html  (I authenticated using Azure Cli
+- For AWS: https://www.terraform.io/docs/providers/aws/index.html
+
+
 #### Install Terraform: 
 
 - To learn a bit about Terraform check out this link : https://www.terraform.io/intro/index.html
 
 -  Make sure Terraform is installed or follow this link : https://www.slashroot.in/terraform-tutorial-how-install-terraform
- 
+
 - You need to configure your provider for terraform to work this example assumes you are using Azure and have the Az Cli installed, you must also be logged in using the "       az login     "  command.
 
 -However this can be changed in the " main.tf "  file.
