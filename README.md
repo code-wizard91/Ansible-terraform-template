@@ -21,7 +21,7 @@
 
 - once the inventory file has been populated open up the playbook.yml file and remove the "#"s to run the specific roles, the roles are referenced by ansible when you run the command below and can be found here "  /ansible-template/roles  "
 
-- RUN: "  ansible-playbook -i inventory playbook.yml   "
+- RUN: "  ansible-playbook -i inventory playbook.yml   " on your command line
 
 
 ### How to use the Terraform template (Ubuntu Linux)
