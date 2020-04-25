@@ -1,0 +1,3 @@
+- name: install java
+  become: true
+  shell: sudo apt-get install default-jdk -y

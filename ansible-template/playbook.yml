@@ -9,11 +9,12 @@
   become: true
   roles: 
 #    - ansible     
-    - angular-node-npm     
+#    - angular-node-npm     
 #    - git
 #    - docker
 #    - terraform
-    - jenkins  
+#    - jenkins
+#    - java  
   tasks:
   - name: configuring user access
     command: sudo usermod -aG sudo mizan
