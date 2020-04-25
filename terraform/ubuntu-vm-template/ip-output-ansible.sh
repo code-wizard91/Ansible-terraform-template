@@ -1,13 +1,13 @@
 #!/bin/bash
 
 
-echo " " >> ../ansible/inventory
-echo "[kubecontrol]" >> ../ansible/inventory
-echo $(terraform output kube_pub_ip) >> ../ansible/inventory
+echo " " > ../../ansible-template/inventory
+echo "[myvm]" >> ../../ansible-template/inventory
+echo $(terraform output kube_pub_ip) >> ../../ansible-template/inventory
 
-echo " " >> ../ansible/inventory
+echo " " >> ../../ansible-template/inventory
 
-echo "[kubecontrol:vars]" >> ../ansible/inventory
-echo "ansible_user=mizan" >> ../ansible/inventory
-echo "ansible_ssh_common_args='-o StrictHostKeyChecking=no'" >> ../ansible/inventory
-echo "ansible_ssh_private_key_file=~/.ssh/id_rsa" >> ../ansible/inventory
+echo "[myvm:vars]" >> ../../ansible-template/inventory
+echo "ansible_user=mizan" >> ../../ansible-template/inventory
+echo "ansible_ssh_common_args='-o StrictHostKeyChecking=no'" >> ../../ansible-template/inventory
+echo "ansible_ssh_private_key_file=~/.ssh/id_rsa" >> ../../ansible-template/inventory
