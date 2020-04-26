@@ -49,10 +49,15 @@ resource "azurerm_kubernetes_cluster" "k8s" {
     }
 
     default_node_pool {
-        name            = "agentpool"
-        node_count      = var.agent_count
-        vm_size         = "Standard_D2s_v3"
+        name                = "agentpool"
+        type                = "VirtualMachineScaleSets"
+        enable_auto_scaling = True
+        node_count          = var.agent_count
+        max_count           = var.agent_max_count
+        min_count           = var.agent_min_count
+        vm_size             = "Standard_D2s_v3"
     }
+
 
     service_principal {
         client_id     = var.client_id
