@@ -6,13 +6,13 @@ provider "azurerm" {
 
 #create resource group
 resource "azurerm_resource_group" "main" {
-  name     = "kube-controller"
+  name     = "Ubuntu-VM"
   location = "eastus"
 }
 
 #create virtual network
 resource "azurerm_virtual_network" "main" {
-  name                = "kube-network"
+  name                = "vm-network"
   address_space       = ["10.0.0.0/16"]
   location            = azurerm_resource_group.main.location
   resource_group_name = azurerm_resource_group.main.name
@@ -28,7 +28,7 @@ resource "azurerm_subnet" "internal" {
 
 #create public IP
 resource "azurerm_public_ip" "main" {
-  name                = "kube-publicIp"
+  name                = "vm-publicIp"
   location            = azurerm_resource_group.main.location
   resource_group_name = azurerm_resource_group.main.name
   allocation_method   = "Static"
@@ -37,12 +37,12 @@ resource "azurerm_public_ip" "main" {
 
 #create NIC
 resource "azurerm_network_interface" "main" {
-  name                = "kube-nic"
+  name                = "vm-nic"
   location            = azurerm_resource_group.main.location
   resource_group_name = azurerm_resource_group.main.name
 
   ip_configuration {
-    name                          = "testconfiguration1"
+    name                          = "vm-ip-configuration"
     subnet_id                     = azurerm_subnet.internal.id
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = azurerm_public_ip.main.id
@@ -51,7 +51,7 @@ resource "azurerm_network_interface" "main" {
 
 #Create VM
 resource "azurerm_virtual_machine" "main" {
-  name                  = "kube-vm"
+  name                  = "ubuntu-vm"
   location              = azurerm_resource_group.main.location
   resource_group_name   = azurerm_resource_group.main.name
   network_interface_ids = [azurerm_network_interface.main.id]
@@ -64,7 +64,7 @@ resource "azurerm_virtual_machine" "main" {
     version   = "latest"
   }
   storage_os_disk {
-    name              = "kube-disk"
+    name              = "vm-disk"
     caching           = "ReadWrite"
     create_option     = "FromImage"
     managed_disk_type = "Standard_LRS"
