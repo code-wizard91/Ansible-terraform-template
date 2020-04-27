@@ -3,7 +3,7 @@
 
 echo " " > ../../ansible-template/inventory
 echo "[myvm]" >> ../../ansible-template/inventory
-echo $(terraform output kube_pub_ip) >> ../../ansible-template/inventory
+echo $(terraform output pub_ip) >> ../../ansible-template/inventory
 
 echo " " >> ../../ansible-template/inventory
 
