@@ -6,7 +6,7 @@ provider "azurerm" {
 
 #create resource group
 resource "azurerm_resource_group" "main" {
-  name     = "Ubuntu-VM"
+  name     = "ubuntu-vm"
   location = "eastus"
 }
 
@@ -20,7 +20,7 @@ resource "azurerm_virtual_network" "main" {
 
 #create subnet
 resource "azurerm_subnet" "internal" {
-  name                 = "internal"
+  name                 = "vm-internal-subnet"
   resource_group_name  = azurerm_resource_group.main.name
   virtual_network_name = azurerm_virtual_network.main.name
   address_prefix       = "10.0.2.0/24"
@@ -28,7 +28,7 @@ resource "azurerm_subnet" "internal" {
 
 #create public IP
 resource "azurerm_public_ip" "main" {
-  name                = "vm-publicIp"
+  name                = "vm-public-ip"
   location            = azurerm_resource_group.main.location
   resource_group_name = azurerm_resource_group.main.name
   allocation_method   = "Static"
@@ -70,7 +70,7 @@ resource "azurerm_virtual_machine" "main" {
     managed_disk_type = "Standard_LRS"
   }
   os_profile {
-    computer_name  = "hostname"
+    computer_name  = "ubuntu-vm"
     admin_username = var.admin_username
     admin_password = var.admin_password
   }
