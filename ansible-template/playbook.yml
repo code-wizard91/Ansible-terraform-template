@@ -14,7 +14,8 @@
 #    - docker
 #    - terraform
 #    - jenkins
-#    - java  
+#    - java
+#    - nodejs
   tasks:
   - name: configuring user access
     command: sudo usermod -aG sudo mizan
