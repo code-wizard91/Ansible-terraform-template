@@ -9,3 +9,8 @@ variable "admin_username" {
 
 }
 
+variable "resource_group_name" {
+  default = "ubuntu-vm"
+
+}
+
