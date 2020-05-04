@@ -22,11 +22,11 @@ variable "dns_prefix" {
 }
 
 variable cluster_name {
-    default = "k8-petclinic"
+    default = "kube-cluster"
 }
 
 variable resource_group_name {
-    default = "petclinic-k8s"
+    default = "k8-rg"
 }
 
 variable location {
@@ -34,7 +34,7 @@ variable location {
 }
 
 variable log_analytics_workspace_name {
-    default = "Petclinic-LogAnalyticsWorkspace"
+    default = "cluster-LogAnalyticsWorkspace"
 }
 
 variable log_analytics_workspace_location {
