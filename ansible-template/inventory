@@ -1,7 +1,10 @@
 [myvm]
-[your_host_ip_here]
+
+--your_host_ip_here
  
 [myvm:vars]
-ansible_user= [your_username_here]
+
+ansible_user= --your_username_here
+
 ansible_ssh_common_args='-o StrictHostKeyChecking=no'
 ansible_ssh_private_key_file=~/.ssh/id_rsa
